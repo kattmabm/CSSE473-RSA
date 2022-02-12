@@ -8,10 +8,8 @@
 
 # Import Statements
 import sys
-import os
 from math import log
 from math import floor
-from Crypto.Util import number
 
 # Parsing script arguments
 nLoc = "./bin/n.txt"
