@@ -21,11 +21,11 @@ This project contains three Python scripts that accomplish everything necessary 
 
 Outputs the following files to the ``./bin`` directory:
 
- - ``d.txt`` : Contains the private key value $d$.
+ - ``d.txt`` : Contains the private key value *d*.
 
- - ``e.txt`` : Contains the public key exponent value $e$.
+ - ``e.txt`` : Contains the public key exponent value *e*.
 
- - ``n.txt`` : Contains the public key produuct value $n$.
+ - ``n.txt`` : Contains the public key produuct value *n*.
 
  - ``p.txt`` : Contains our first randomly generated prime number.
 
@@ -35,9 +35,9 @@ Outputs the following files to the ``./bin`` directory:
 
 #### Arguments
 
- - ``--key-loc`` (``-n``) : File location containing the product portion of the public key, $n$. Default value: ``./bin/n.txt``.
+ - ``--key-loc`` (``-n``) : File location containing the product portion of the public key, *n*. Default value: ``./bin/n.txt``.
 
- - ``--exp-loc`` (``-e``) : File location containing the exponent portion of the public key, $n$. Default value: ``./bin/e.txt``.
+ - ``--exp-loc`` (``-e``) : File location containing the exponent portion of the public key, *e*. Default value: ``./bin/e.txt``.
 
  - ``--message-loc`` (``-l``) : File location containing the message that is to be encrypted.
 
