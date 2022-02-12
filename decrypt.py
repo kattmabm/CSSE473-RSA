@@ -38,7 +38,7 @@ dFile.close()
 
 # Decrypting Algorithm
 # Sets our decrypted message value
-#  to be (encoded ^ e) % n
+#  to be (encrypted ^ d) % n
 decrypted = pow(encrypted, d, n)
 
 # Decoding Algorithm
