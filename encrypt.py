@@ -8,8 +8,6 @@
 
 # Import Statements
 import sys
-from math import log
-from math import floor
 
 # Parsing script arguments
 nLoc = "./bin/n.txt"
@@ -46,28 +44,11 @@ eFile.close()
 encoded = 0
 for i in range(len(message)):
     encoded += int(pow(128, i) * ord(message[i]))
-print(encoded)
 
 # Encrypting Algorithm
 # Sets our encrypted message value
 #  to be (encoded ^ e) % n
 encrypted = pow(encoded, e, n)
-
-# Decoding Algorithm
-# Converts our base-10 integer into a
-#  base-128 integer, assigns each digit
-#  to its corresponding ASCII value, and
-#  reads this off as a string.
-# TODO - move to decrypt.py once that
-#   has been created.
-numToDecode = encoded
-decoded = ""
-for i in range(floor(log(numToDecode, 128)), -1, -1):
-    base = int(pow(128, i))
-    letter = floor(numToDecode / base)
-    decoded += chr(letter)
-    numToDecode -= letter * base
-decoded = decoded[::-1]
 
 # Writing our encoded message to the
 #  file encoded.txt in ./bin
