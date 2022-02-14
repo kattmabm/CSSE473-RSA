@@ -1,5 +1,9 @@
-# All .txt files used in the bin directory should
+# All .txt files used in the bin, message,
+#  private, and public directories should
 #  be ignored as they will change frequently
 #  when running the code and do not provide
 #  any important information information.
 bin/*.txt
+message/*.txt
+private/*.txt
+public/*.txt

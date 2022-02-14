@@ -55,38 +55,44 @@ for e in range(2, phi):
 #  of the product of e * phi.
 d = pow(e, -1, phi)
 
-# Creating the ./bin directory if
+# Creating the ./private directory if
 #  it does not already exist.
-outputFolder = "./bin"
-if not os.path.exists(outputFolder):
-    os.makedirs(outputFolder)
+privateFolder = "./private"
+if not os.path.exists(privateFolder):
+    os.makedirs(privateFolder)
+
+# Creating the ./public directory if
+#  it does not already exist.
+publicFolder = "./public"
+if not os.path.exists(publicFolder):
+    os.makedirs(publicFolder)
 
 # Writing our private key d to the
-#  file d.txt in ./bin
-dFile = open("./bin/d.txt", "w")
+#  file d.txt in ./private
+dFile = open("./private/d.txt", "w")
 dFile.write(str(d))
 dFile.close()
 
 # Writing our public key exponent
-#  e to the file e.txt in ./bin
-eFile = open("./bin/e.txt", "w")
+#  e to the file e.txt in ./public
+eFile = open("./public/e.txt", "w")
 eFile.write(str(e))
 eFile.close()
 
 # Writing our public key value n
-#  to the file n.txt in ./bin
-nFile = open("./bin/n.txt", "w")
+#  to the file n.txt in ./public
+nFile = open("./public/n.txt", "w")
 nFile.write(str(n))
 nFile.close()
 
 # Writing our first prime number
-#  p to the file p.txt in ./bin
-pFile = open("./bin/p.txt", "w")
+#  p to the file p.txt in ./private
+pFile = open("./private/p.txt", "w")
 pFile.write(str(p))
 pFile.close()
 
 # Writing our second prime number
-#  q to the file q.txt in ./bin
-qFile = open("./bin/q.txt", "w")
+#  q to the file q.txt in ./private
+qFile = open("./private/q.txt", "w")
 qFile.write(str(q))
 qFile.close()

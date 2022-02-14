@@ -10,21 +10,26 @@
 import sys
 
 # Parsing script arguments
-nLoc = "./bin/n.txt"
-eLoc = "./bin/e.txt"
+nLoc = "./public/n.txt"
+eLoc = "./public/e.txt"
+messageLoc = "./message/message.txt"
 for i in range(1, len(sys.argv), 2):
     if sys.argv[i] in ['-n', '--key-loc']:
         nLoc = sys.argv[i+1]
     elif sys.argv[i] in ['-e', '--exp-loc']:
         eLoc = sys.argv[i+1]
-    elif sys.argv[i] in ['-m', '--message']:
-        message = sys.argv[i+1]
-    elif sys.argv[i] in ['-l', '--message-loc']:
+    elif sys.argv[i] in ['-m', '--message-loc']:
         messageLoc = sys.argv[i+1]
-        messageFile = open(messageLoc, "r")
-        message = messageFile.read()
-        messageFile.close()
 
+# Reading the message from the
+#  supplied file location
+messageFile = open(messageLoc, "r")
+messageLines = messageFile.readlines()
+messageFile.close()
+message = ""
+for line in messageLines:
+    message += line
+    
 # Loading the public keys from the
 #  supplied file locations
 nFile = open(nLoc, "r")
@@ -50,14 +55,8 @@ for i in range(len(message)):
 #  to be (encoded ^ e) % n
 encrypted = pow(encoded, e, n)
 
-# Writing our encoded message to the
-#  file encoded.txt in ./bin
-encodedFile = open("./bin/encoded.txt", "w")
-encodedFile.write(str(encoded))
-encodedFile.close()
-
 # Writing our fully encrypted message
-#  to the file encoded.txt in ./bin
-encryptedFile = open("./bin/encrypted.txt", "w")
+#  to the file encoded.txt in ./public
+encryptedFile = open("./public/encrypted.txt", "w")
 encryptedFile.write(str(encrypted))
 encryptedFile.close()

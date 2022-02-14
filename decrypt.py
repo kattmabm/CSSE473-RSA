@@ -12,9 +12,9 @@ from math import log
 from math import floor
 
 # Parsing script arguments
-nLoc = "./bin/n.txt"
-dLoc = "./bin/d.txt"
-messageLoc = "./bin/encrypted.txt"
+nLoc = "./public/n.txt"
+dLoc = "./private/d.txt"
+messageLoc = "./public/encrypted.txt"
 for i in range(1, len(sys.argv), 2):
     if sys.argv[i] in ['-n', '--public-loc']:
         nLoc = sys.argv[i+1]
@@ -23,6 +23,8 @@ for i in range(1, len(sys.argv), 2):
     elif sys.argv[i] in ['-l', '--message-loc']:
         messageLoc = sys.argv[i+1]
 
+# Loading the encrypted message
+#  from the supplied file locations
 messageFile = open(messageLoc, "r")
 encrypted = int(messageFile.read())
 messageFile.close()
@@ -56,13 +58,13 @@ for i in range(floor(log(numToDecode, 128)), -1, -1):
 decoded = decoded[::-1]
 
 # Writing our decrypted message to the
-#  file encoded.txt in ./bin
-decryptedFile = open("./bin/decrypted.txt", "w")
-decryptedFile.write(str(decrypted))
-decryptedFile.close()
+#  file encoded.txt in ./private
+# decryptedFile = open("./private/decrypted.txt", "w")
+# decryptedFile.write(str(decrypted))
+# decryptedFile.close()
 
 # Writing our fully decoded message
-#  to the file encoded.txt in ./bin
-decodedFile = open("./bin/decoded.txt", "w")
+#  to the file encoded.txt in ./private
+decodedFile = open("./private/decoded.txt", "w")
 decodedFile.write(str(decoded))
 decodedFile.close()
