@@ -9,7 +9,12 @@ This project was created for Rose-Hulman's CSSE 473 - Design and Analysis of Alg
 ## How to Run
 
 This project contains three Python scripts that accomplish everything necessary to show the fully-functional RSA encryption algorithm.
-``generateKeys.py`` generates the public and private keys used for encrypting and decrypting the data recieved. ``encrypt.py`` encodes and encrpyts a user's message given the public key. ``decrypt.py`` decrypts and decodes an encrypted message given the private key.
+
+``generateKeys.py`` generates the public and private keys used for encrypting and decrypting the data recieved.
+
+``encrypt.py`` encodes and encrpyts a user's message given the public key.
+
+``decrypt.py`` decrypts and decodes an encrypted message given the private key.
 
 ### Generate Keys
 
@@ -19,38 +24,50 @@ This project contains three Python scripts that accomplish everything necessary 
 
 #### Outputs
 
-Outputs the following files to the ``./bin`` directory:
+Outputs the following files to the ``./private`` directory:
 
  - ``d.txt`` : Contains the private key value *d*.
-
- - ``e.txt`` : Contains the public key exponent value *e*.
-
- - ``n.txt`` : Contains the public key produuct value *n*.
 
  - ``p.txt`` : Contains our first randomly generated prime number.
 
  - ``q.txt`` : Contains our second randomly generated prime number.
 
+Outputs the following files to the ``./public`` directory:
+
+ - ``e.txt`` : Contains the public key exponent value *e*.
+
+ - ``n.txt`` : Contains the public key produuct value *n*.
+
 ### Encrypt
+
+**Warning**: some errors may occur when attempting to encrypt messages that are more than 100 characters long or so. I believe this has to do with Python's ``pow()`` method becoming somewhat probabilistic when working with truly massive numbers, but more testing is needed to figure out the exact cause.
 
 #### Arguments
 
- - ``--key-loc`` (``-n``) : File location containing the product portion of the public key, *n*. Default value: ``./bin/n.txt``.
+ - ``--key-loc`` (``-n``) : File location containing the product portion of the public key, *n*. Default value: ``./public/n.txt``.
 
- - ``--exp-loc`` (``-e``) : File location containing the exponent portion of the public key, *e*. Default value: ``./bin/e.txt``.
+ - ``--exp-loc`` (``-e``) : File location containing the exponent portion of the public key, *e*. Default value: ``./public/e.txt``.
 
- - ``--message-loc`` (``-l``) : File location containing the message that is to be encrypted.
-
- - ``--message`` (``-m``) : Message to be encoded and encrpyted. This can be substituted for ``--message-loc`` if a message is typed directly rather than giving a file path.
+ - ``--message-loc`` (``-m``) : File location containing the message that is to be encrypted. Default value: ``./message/message.txt``.
 
 #### Outputs
 
-Outputs the following files to the ``./bin`` directory:
-
- - ``encoded.txt`` : An encoded copy of the user-inputted message. This is *not* the encrypted value, it has simply been converted from ASCII characters to an integer.
+Outputs the following files to the ``./public`` directory:
 
  - ``encrpyted.txt`` : The user-inputted message after being fully encoded and encrypted using RSA encryption.
 
 ### Decrypt
 
-Not yet implemented.
+#### Arguments
+
+ - ``--public-loc`` (``-n``) : File location containing the product portion of the public key, *n*. Default value: ``./public/n.txt``.
+
+ - ``--private-loc`` (``-d``) : File location containing the private key, *d*. Default value: ``./private/d.txt``.
+
+ - ``--message-loc`` (``-m``) : File location containing the encrypted message to be decrypted. Default value: ``./public/encrypted.txt``.
+
+#### Outputs
+
+Outputs the following files to the ``./private`` directory:
+
+ - ``decoded.txt`` : The message that has been fully decoded using the RSA alorithm.
