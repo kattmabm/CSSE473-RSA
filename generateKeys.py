@@ -67,6 +67,12 @@ publicFolder = "./public"
 if not os.path.exists(publicFolder):
     os.makedirs(publicFolder)
 
+# Creating the ./message directory if
+#  it does not already exist.
+messageFolder = "./message"
+if not os.path.exists(messageFolder):
+    os.makedirs(messageFolder)
+
 # Writing our private key d to the
 #  file d.txt in ./private
 dFile = open("./private/d.txt", "w")

@@ -55,8 +55,14 @@ for i in range(len(message)):
 #  to be (encoded ^ e) % n
 encrypted = pow(encoded, e, n)
 
-# Writing our fully encrypted message
+# Writing our fully encoded message
 #  to the file encoded.txt in ./public
+encodedFile = open("./message/encoded.txt", "w")
+encodedFile.write(str(encoded))
+encodedFile.close()
+
+# Writing our fully encrypted message
+#  to the file encrypted.txt in ./public
 encryptedFile = open("./public/encrypted.txt", "w")
 encryptedFile.write(str(encrypted))
 encryptedFile.close()
