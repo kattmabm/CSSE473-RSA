@@ -3,7 +3,7 @@
 
 # Braden Kattman and Trey Kline
 # CSSE 473 - RSA Implementation
-# Encrypting a Message Given 
+# Decrypting our Message
 # February 11, 2022
 
 # Import Statements
@@ -20,7 +20,7 @@ for i in range(1, len(sys.argv), 2):
         nLoc = sys.argv[i+1]
     elif sys.argv[i] in ['-d', '--private-loc']:
         eLoc = sys.argv[i+1]
-    elif sys.argv[i] in ['-l', '--message-loc']:
+    elif sys.argv[i] in ['-m', '--message-loc']:
         messageLoc = sys.argv[i+1]
 
 # Loading the encrypted message
@@ -56,12 +56,6 @@ for i in range(floor(log(numToDecode, 128)), -1, -1):
     decoded += chr(letter)
     numToDecode -= letter * base
 decoded = decoded[::-1]
-
-# Writing our decrypted message to the
-#  file encoded.txt in ./private
-# decryptedFile = open("./private/decrypted.txt", "w")
-# decryptedFile.write(str(decrypted))
-# decryptedFile.close()
 
 # Writing our fully decoded message
 #  to the file encoded.txt in ./private

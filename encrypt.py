@@ -3,7 +3,7 @@
 
 # Braden Kattman and Trey Kline
 # CSSE 473 - RSA Implementation
-# Encrypting a Message Given 
+# Encrypting our Message 
 # February 11, 2022
 
 # Import Statements
